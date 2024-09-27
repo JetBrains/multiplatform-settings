@@ -46,26 +46,27 @@ kotlin {
 
 // Hacks to get KeychainSettingsTest running on iOS simulator
 // https://youtrack.jetbrains.com/issue/KT-61470
-kotlin {
-    iosX64 {
-        testRuns.configureEach {
-            executionSource.binary.linkerOpts(
-                "-sectcreate",
-                "__TEXT",
-                "__entitlements",
-                file("$projectDir/src/commonTest/resources/entitlements.plist").absolutePath
-            )
-        }
-    }
-}
-if ("mac" in System.getProperties()["os.name"].toString().lowercase()) {
-    tasks.create<Exec>("launchIosSimulator") {
-        commandLine("open", "-a", "Simulator")
-    }
-
-    tasks.getByName("iosX64Test").dependsOn("launchIosSimulator")
-}
-tasks.withType<KotlinNativeSimulatorTest>().getByName("iosX64Test") {
-    standalone.set(false)
-    device.set("booted")
-}
+//kotlin {
+//    iosX64 {
+//        testRuns.configureEach {
+//            executionSource.binary.linkerOpts(
+//                "-sectcreate",
+//                "__TEXT",
+//                "__entitlements",
+//                file("$projectDir/src/commonTest/resources/entitlements.plist").absolutePath
+//            )
+//        }
+//    }
+//}
+//if ("mac" in System.getProperties()["os.name"].toString().lowercase()) {
+//    tasks.create<Exec>("launchIosSimulator") {
+//        commandLine("open", "-a", "Simulator")
+//    }
+//
+//    tasks.getByName("iosX64Test").dependsOn("launchIosSimulator")
+//}
+//
+//tasks.withType<KotlinNativeSimulatorTest>().getByName("iosX64Test") {
+//    standalone.set(false)
+//    device.set("booted")
+//}
