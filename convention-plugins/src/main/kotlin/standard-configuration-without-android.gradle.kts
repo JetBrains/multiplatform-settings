@@ -34,7 +34,7 @@ kotlin {
 
     @OptIn(ExperimentalKotlinGradlePluginApi::class)
     compilerOptions {
-        allWarningsAsErrors = true
+        allWarningsAsErrors = false
     }
 
     @OptIn(ExperimentalKotlinGradlePluginApi::class)

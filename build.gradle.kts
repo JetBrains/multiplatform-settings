@@ -38,3 +38,31 @@ apiValidation {
         enabled = true
     }
 }
+
+
+subprojects {
+    plugins.withId("org.jetbrains.kotlin.multiplatform") {
+        configure<org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension> {
+            compilerOptions {
+                val customLanguageVersion = findProperty("kotlin_language_version")
+                println("Module: ${project.name}. Custom LanguageVersion: $customLanguageVersion")
+                customLanguageVersion?.let {
+                    languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.fromVersion(it.toString()))
+                }
+
+                val customApiVersion = findProperty("kotlin_api_version")
+                println("Module: ${project.name}. Custom ApiVersion: $customApiVersion")
+                customApiVersion?.let {
+                    apiVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.fromVersion(it.toString()))
+                }
+
+                val customCompilerArguments = findProperty("kotlin_free_compiler_args")
+                println("Module: ${project.name}. Custom FreeCompilerArgs: $customApiVersion")
+                customCompilerArguments?.let {
+                    val args: List<String> = it.toString().split(", ")
+                    freeCompilerArgs.addAll(args)
+                }
+            }
+        }
+    }
+}
