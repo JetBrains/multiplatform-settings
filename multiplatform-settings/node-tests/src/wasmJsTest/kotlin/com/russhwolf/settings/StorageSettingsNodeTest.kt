@@ -16,18 +16,8 @@
 
 package com.russhwolf.settings
 
-//language=JavaScript
-@JsFun(
-    """
-() => {
-    var LocalStorage = require('node-localstorage').LocalStorage;
-    return new LocalStorage('./testStorage');
-}
-"""
-)
-private external fun newStorage(): Storage
-
-private val storage = newStorage()
+@JsModule("./storage.mjs")
+external private val storage: Storage
 
 class StorageSettingsNodeTest : BaseSettingsTest(
     platformFactory = object : Settings.Factory {
