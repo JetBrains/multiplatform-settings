@@ -16,8 +16,12 @@
 
 package com.russhwolf.settings
 
-@JsModule("./storage.mjs")
-external private val storage: Storage
+@JsModule("node-localstorage")
+external object NodeLocalStorage {
+    class LocalStorage(s: String) : Storage
+}
+
+private val storage: Storage = NodeLocalStorage.LocalStorage("./testStorage")
 
 class StorageSettingsNodeTest : BaseSettingsTest(
     platformFactory = object : Settings.Factory {
