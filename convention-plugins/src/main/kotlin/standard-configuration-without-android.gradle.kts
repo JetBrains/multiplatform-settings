@@ -74,7 +74,6 @@ kotlin {
                 }
 
                 group("apple32") {
-                    withWatchosArm32()
                     withWatchosArm64() // NB this is weird target w/ 32-bit numbers
                 }
             }
