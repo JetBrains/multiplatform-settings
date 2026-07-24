@@ -103,6 +103,7 @@ public final class com/russhwolf/settings/Settings$Companion {
 
 public abstract interface class com/russhwolf/settings/Settings$Factory {
 	public abstract fun create (Ljava/lang/String;)Lcom/russhwolf/settings/Settings;
+	public static synthetic fun create$default (Lcom/russhwolf/settings/Settings$Factory;Ljava/lang/String;ILjava/lang/Object;)Lcom/russhwolf/settings/Settings;
 }
 
 public final class com/russhwolf/settings/Settings$Factory$DefaultImpls {
