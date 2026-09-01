@@ -68,7 +68,6 @@ kotlin {
                     withMacos()
                     withTvos()
 
-                    withWatchosX64()
                     withWatchosDeviceArm64()
                     withWatchosSimulatorArm64()
                 }

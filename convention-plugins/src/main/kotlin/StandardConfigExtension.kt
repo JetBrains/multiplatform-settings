@@ -33,13 +33,11 @@ open class StandardConfigExtension {
             linuxX64()
 
             macosArm64()
-            macosX64()
 
             mingwX64()
 
             tvosArm64()
             tvosSimulatorArm64()
-            tvosX64()
 
             @OptIn(ExperimentalWasmDsl::class)
             wasmJs {
@@ -54,7 +52,6 @@ open class StandardConfigExtension {
             watchosArm64()
             watchosDeviceArm64()
             watchosSimulatorArm64()
-            watchosX64()
         }
     }
 }

@@ -27,20 +27,17 @@ jobs:
 
       - name: Mac build
         run: |
-          ./gradlew macosX64Test iosX64Test watchosX64Test tvosX64Test \
+          ./gradlew iosX64Test \
           publishKotlinMultiplatformPublicationToMavenLocal \
           publishIosArm64PublicationToMavenLocal \
           publishIosSimulatorArm64PublicationToMavenLocal \
           publishIosX64PublicationToMavenLocal \
-          publishMacosX64PublicationToMavenLocal \
           publishMacosArm64PublicationToMavenLocal \
           publishWatchosArm64PublicationToMavenLocal \
           publishWatchosDeviceArm64PublicationToMavenLocal \
           publishWatchosSimulatorArm64PublicationToMavenLocal \
-          publishWatchosX64PublicationToMavenLocal \
           publishTvosArm64PublicationToMavenLocal \
           publishTvosSimulatorArm64PublicationToMavenLocal \
-          publishTvosX64PublicationToMavenLocal \
           --no-daemon --stacktrace
 
       - name: Mac sample Gradle build

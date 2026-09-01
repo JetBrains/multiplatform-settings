@@ -36,11 +36,9 @@ kotlin {
     }
     jvm()
     macosArm64()
-    macosX64()
     mingwX64()
     tvosArm64()
     tvosSimulatorArm64()
-    tvosX64()
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         browser()
@@ -48,7 +46,6 @@ kotlin {
     watchosArm64()
     watchosDeviceArm64()
     watchosSimulatorArm64()
-    watchosX64()
 
     targets.withType<KotlinNativeTarget>().matching { it.konanTarget.family == MINGW }.configureEach {
         // WindowsNoArgTest will check that we use this as our parent registry key
