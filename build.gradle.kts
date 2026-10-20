@@ -79,6 +79,11 @@ subprojects {
             logger.info("<KUP> ${this@kotlinCompilationTask.path} : added -Xrender-internal-diagnostic-names")
         }
     }
+    // !! infrastructure for builds as a Kotlin user project
+    // ("download Robolectric android-all jars via cache-redirector instead of Maven Central")
+    tasks.withType<Test>().configureEach {
+        systemProperty("robolectric.dependency.repo.url", "https://cache-redirector.jetbrains.com/maven-central")
+    }
 
 // !! infrastructure for builds as a Kotlin user project
 // ("implement a Gradle property for passing additional CLI options to the Kotlin compiler")
